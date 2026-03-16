@@ -675,7 +675,15 @@
         </div>
 
         <div class="card">
-            <h3 class="dashboard-title" style="margin-bottom: 20px;">Analytics</h3>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h3 class="dashboard-title" style="margin: 0;">Analytics</h3>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 0.8rem; color: #94a3b8; font-weight: 600; text-transform: uppercase;">VS:</span>
+                    <select id="mgr_compare_select" class="skill-dropdown-seamless" style="margin: 0 !important; width: 150px !important; padding: 4px 8px !important; font-size: 0.85rem !important;" onchange="_hCMP(this.value)">
+                        <option value="none">None</option>
+                    </select>
+                </div>
+            </div>
             <div id="mgr_detailed_readout"></div>
         </div>
     </div>
@@ -793,7 +801,7 @@
         
         <p style="margin-bottom: 16px;">First and foremost, please don't assume this simulator is 100% correct. While I've tried my best to mimic the in-game battles, I don't have access to the exact equations the developers use. Treat this tool as a helpful "second opinion" rather than a "true predictor".</p>
         
-        <p style="margin-bottom: 16px;">This simulator is primarily designed for Quantum tier and above. The equations align well with my experimental data for Quantum and Underworld weapon breakpoints. However, I can't guarantee its accuracy for Divine weapons, as I never reached that tier to verify if the math holds up.</p>
+        <p style="margin-bottom: 16px;">This simulator is primarily designed for Quantum tier and above. The equations align well with my experimental data for Quantum and Underworld weapon breakpoints. However, I can't guarantee its accuracy for Divine weapons and weapon skins, as I don't have enough data to verify if the math holds up.</p>
 
         <h4 style="color: #e2e8f0; margin-top: 24px; margin-bottom: 8px;">Weapon Breakpoints & Skins</h4>
         <p style="margin-bottom: 16px;">For those unaware, an <strong>Attack Speed Breakpoint</strong> is the specific threshold required to jump to the next attack speed bracket. For instance, with a Quantum Gun or Infernal Trident between 100% and 149.9% Attack Speed, your double attack interval will be 1.0s. But the moment you hit 150.0%, that interval drops to 0.8s. While some weapons share the same breakpoints, most differ. Furthermore, even if two weapons have the same breakpoints, varying projectile speeds will lead to slightly different hit timings. Note that for <em>single</em> attacks, every weapon seems to share the same breakpoint regardless of whether it's melee or ranged.</p>
