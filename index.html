@@ -416,6 +416,14 @@
             </div>
         </div>
     </div>
+    <div class="card summary-card" style="grid-column: 1 / -1; margin: 0 auto 24px auto; width: 100%; max-width: 800px; box-sizing: border-box;">
+        <div class="dashboard-header-wrapper" style="height: auto; margin-bottom: 12px;">
+            <h3 class="dashboard-title" style="margin: 0;">PREVIEW</h3>
+        </div>
+        <div class="stats-table" id="live_analytics_table">
+            <div class="stats-row" style="grid-template-columns: 1fr;"><span style="color:#64748b; font-style:italic; padding-left: 12px; font-size: 0.85rem;">Calculating...</span></div>
+        </div>
+    </div>
 
     <div class="controls">
         <label style="margin: 0;">Simulation Count:</label>
@@ -572,16 +580,22 @@
         </div>
 
         <div class="card log-card">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 10px; gap: 10px;">
-                <h3 class="dashboard-title" style="margin: 0; cursor: pointer; user-select: none; display: flex; align-items: center;" onclick="let tgt = document.getElementById('battle_log_legend'); let isHidden = tgt.style.display === 'none'; tgt.style.display = isHidden ? 'flex' : 'none'; this.querySelector('.t-icon').innerText = isHidden ? '[-]' : '[+]';">
-                    DETAILED BATTLE LOG <span class="t-icon" style="color:#64748b; font-family: monospace; font-size: 0.85rem; margin-left: 8px;">[+]</span>
-                </h3>
-                <select id="log_filter" class="skill-dropdown-seamless" style="width: auto; margin: 0; padding: 4px 8px; font-size: 0.85rem; cursor: pointer;" onchange="_fBL(this.value)">
-                    <option value="both">Both Players</option>
-                    <option value="p">Player 1 Only</option>
-                    <option value="e">Player 2 Only</option>
-                </select>
-            </div>
+            <div class="log-card-header">
+    <h3 class="dashboard-title" style="margin: 0; cursor: pointer; user-select: none; display: flex; align-items: center;" onclick="let tgt = document.getElementById('battle_log_legend'); let isHidden = tgt.style.display === 'none'; tgt.style.display = isHidden ? 'flex' : 'none'; this.querySelector('.t-icon').innerText = isHidden ? '[-]' : '[+]';">
+        DETAILED BATTLE LOG <span class="t-icon" style="color:#64748b; font-family: monospace; font-size: 0.85rem; margin-left: 8px;">[+]</span>
+    </h3>
+    <div class="log-dropdowns">
+        <select id="log_selector_log" class="skill-dropdown-seamless" onchange="_sL(this.value)">
+            <option value="0">Run simulation first</option>
+        </select>
+        <select id="log_filter" class="skill-dropdown-seamless" onchange="_fBL(this.value)">
+            <option value="both">Both Players</option>
+            <option value="p">Player 1 Only</option>
+            <option value="e">Player 2 Only</option>
+        </select>
+    </div>
+</div>
+    
             
             <div id="battle_log_legend" class="log-legend" style="display: none;">
                 <span title="Normal Attack"><span class="lgd-icon">⚔️</span> Hit</span>
@@ -608,9 +622,10 @@
                 <button id="mgr_btn_save" class="btn-success" style="display: none;" onclick="_sMPR()">Save Changes</button>
                 <button id="mgr_btn_revert" class="btn-secondary" style="display:none;" onclick="_rMP()">Revert</button>
                 <div id="mgr_action_divider" class="divider" style="display:none;"></div>
-                <button class="btn-secondary" onclick="_dMP()">Copy</button>
-                <button class="btn-secondary" onclick="_rnMP()">Rename</button>
-                <button class="btn-danger" onclick="_dlMP()">Delete</button>
+                <button class="btn-secondary flex-btn" onclick="_oOM()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></svg>
+    Organize
+</button>
             </div>
         </div>
     </div>
@@ -621,9 +636,9 @@
 
     <div id="manager_inspector" style="display:none; grid-template-columns: 1fr 1fr; gap: 24px;">
         <div class="card">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h3 class="dashboard-title" style="margin: 0;">Stats & Skills</h3>
-                <div id="mgr_power" class="power-text" style="font-size: 1.2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; gap: 12px;">
+                <h3 id="mgr_stats_title" class="dashboard-title" style="margin: 0; color: #60a5fa !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; flex: 1;">Stats & Skills</h3>
+                <div id="mgr_power" class="power-text" style="font-size: 1.2rem; flex-shrink: 0;">
                     <svg viewBox="0 -3 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1em; height: 1em;">
                         <path d="M8 16L19 5v-2h-2L6 14Z" />
                         <path d="M5 13l4 4" />
@@ -806,9 +821,7 @@
         <h4 style="color: #e2e8f0; margin-top: 24px; margin-bottom: 8px;">Weapon Breakpoints & Skins</h4>
         <p style="margin-bottom: 16px;">For those unaware, an <strong>Attack Speed Breakpoint</strong> is the specific threshold required to jump to the next attack speed bracket. For instance, with a Quantum Gun or Infernal Trident between 100% and 149.9% Attack Speed, your double attack interval will be 1.0s. But the moment you hit 150.0%, that interval drops to 0.8s. While some weapons share the same breakpoints, most differ. Furthermore, even if two weapons have the same breakpoints, varying projectile speeds will lead to slightly different hit timings. Note that for <em>single</em> attacks, every weapon seems to share the same breakpoint regardless of whether it's melee or ranged.</p>
         
-        <p style="margin-bottom: 16px;">I've also been informed that the recent addition of weapon skins can alter your attack speed breakpoints. This means you can strategically decide whether to equip a skin to gain an advantage. For example, if you have an Infernal Trident with 138% Attack Speed, it is better to use a skin with a more favorable breakpoint, since you won't hit the Trident's next breakpoint until 150% anyway.</p>
-        
-        <p style="margin-bottom: 16px;">Visually, for the ranged weapons, the Druid Sword has similar animation with the Quantum Staff, the Flower Sword resembles the Quantum Gun, and the Clover looks like the Abyssal Fork. However, my friend told me that the Clover has different breakpoints from the Abyssal Fork despite the similar animation. On top of that, melee and ranged versions of the same skin likely have different breakpoints as well.</p>
+        <p style="margin-bottom: 16px;">I've also been informed that the recent addition of weapon skins can alter your attack speed breakpoints. This means you can strategically decide whether to equip a skin to gain an advantage. For example, if you have an Infernal Trident with 138% Attack Speed, it is better to use a skin with a more favorable breakpoint, since you won't hit the Trident's next breakpoint until 150% anyway. Be aware that the same weapon skin has different breakpoint between the melee and ranged version.</p>
 
         <h4 style="color: #e2e8f0; margin-top: 24px; margin-bottom: 8px;">Last Second Nuke</h4>
         <p style="margin-bottom: 16px;">If you aren't in Quantum yet and run a Regen build, you may want to check out the <strong>Last Second Nuke</strong> tab. It calculates the optimal cooldown reduction required to drop a Meteor or Bomb at the very last second of a battle. Credit to Warren, the first person to showcase this trick on Discord. I can't guarantee if the cooldown reduction values are 100% correct, but from my limited testing, the equation fits my data.</p>
@@ -949,6 +962,95 @@
         <span>More</span>
     </a>
 </nav>
+
+<div id="organize_modal" class="modal-overlay" style="display: none;" onclick="if(event.target === this) { this.style.display='none'; _uPL(); _rML(); }">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 style="margin: 0; color: #fff; display: flex; align-items: center; gap: 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings-icon lucide-settings"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></svg>
+                Organize Profiles
+            </h3>
+            <button class="icon-btn" onclick="document.getElementById('organize_modal').style.display='none'; _uPL(); _rML();">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+        
+        <div class="modal-body" id="organize_list">
+            </div>
+
+        <div class="modal-footer">
+            <span id="org_sel_count" style="color: #94a3b8; font-size: 0.85rem;">0 Selected</span>
+            <button class="btn-danger flex-btn" id="org_btn_delete" onclick="_orgDel()" disabled style="margin: 0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"></path></svg> 
+                Delete Selected
+            </button>
+        </div>
+    </div>
+</div>
+
+<button id="mobile_fab" class="fab-btn mobile-only-flex" onclick="_tJM()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="8" y1="6" x2="21" y2="6"></line>
+        <line x1="8" y1="12" x2="21" y2="12"></line>
+        <line x1="8" y1="18" x2="21" y2="18"></line>
+        <line x1="3" y1="6" x2="3.01" y2="6"></line>
+        <line x1="3" y1="12" x2="3.01" y2="12"></line>
+        <line x1="3" y1="18" x2="3.01" y2="18"></line>
+    </svg>
+</button>
+
+<button id="mobile_fab" class="fab-btn mobile-only-flex" onclick="_tJM()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+</button>
+
+<div id="jump_menu_overlay" class="drawer-overlay" style="display: none;" onclick="_tJM()">
+    <div class="drawer-sheet" onclick="event.stopPropagation()">
+        <div class="drawer-handle"></div>
+        
+        <div class="drawer-header">
+            <h3>Quick Navigation</h3>
+        </div>
+        
+        <div class="drawer-scroll-area" style="overflow: visible;">
+            <div class="drawer-grid-3">
+                <button class="drawer-box-btn" onclick="_jTo('p_header_name')">
+                    <span class="p1-color" style="font-size: 0.9rem;">Player 1</span>
+                </button>
+                <button class="drawer-box-btn" onclick="_jTo('e_header_name')">
+                    <span class="p2-color" style="font-size: 0.9rem;">Player 2</span>
+                </button>
+                
+                <button class="drawer-box-btn" onclick="_jTo('live_analytics_table')">
+                    <span style="color: #94a3b8; font-size: 0.9rem;">Preview</span>
+                </button>
+            </div>
+
+            <button class="drawer-simulate-btn" onclick="_rS(); _jTo('sim_count');">
+                <svg viewBox="0 -3 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;">
+                    <path d="M8 16L19 5v-2h-2L6 14Z"></path>
+                    <path d="M5 13l4 4"></path>
+                    <path d="M7 15l-3 3"></path>
+                    <path d="M5 5v-2h2L10 6L8 8Z M16 16L14 14L16 12L18 14Z"></path>
+                    <path d="M19 13l-4 4"></path>
+                    <path d="M17 15l3 3"></path>
+                </svg>
+                <span>Simulate Battle</span>
+            </button>
+
+            <div class="drawer-grid-3">
+                <button class="drawer-box-btn" onclick="_jTo('overall_win_rate')">
+                    <span style="color: #10b981; font-size: 0.9rem;">Overall</span>
+                </button>
+                <button class="drawer-box-btn" onclick="_jTo('match_report_title')">
+                    <span style="color: #a78bfa; font-size: 0.9rem;">Match</span>
+                </button>
+                <button class="drawer-box-btn" onclick="_jTo('battleLog')">
+                    <span style="color: #f43f5e; font-size: 0.9rem;">Log</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="sim.js"></script>
 </body>
