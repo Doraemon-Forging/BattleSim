@@ -81,39 +81,21 @@
             </div>
             <div class="input-wrapper">
                 <label class="flex-label">
-                    HP <span class="pvp-mult-label">(PvP Mult: <input type="text" id="p_hp_mult" value="500" class="fmt-input tiny-input" oninput="_hI('p')" tabindex="-1">%)</span>
+                    HP <span class="pvp-mult-label">(PvP Mult: <input type="text" id="p_hp_mult" value="600" class="fmt-input tiny-input" oninput="_hI('p')" tabindex="-1">%)</span>
                 </label>
                 <input type="text" id="p_hp" value="8m" class="fmt-input" oninput="_hI('p')">
             </div>
         </div>
 
-        <div class="input-wrapper" style="margin-top: 16px; margin-bottom: 24px;">
-            <label>Weapon</label>
-            <select id="p_weapon" onchange="_uA()">
-                <optgroup label="Ranged">
-                    <option value="quantum_bow">Quantum Bow</option>
-                    <option value="quantum_gun">Quantum Gun</option>
-                    <option value="quantum_staff">Quantum Staff</option>
-                    <option value="infernal_trident">Infernal Trident</option>
-                    <option value="abyssal_fork">Abyssal Fork</option>
-                    <option value="divine_staff">Divine Staff</option>
-                    <option value="staff_of_wisdom">Staff of Wisdom</option>
-                    <option value="druid_sword">Druid Sword</option>
-                    <option value="flower_sword">Flower Sword</option>
-                </optgroup>
-                <optgroup label="Melee">
-                    <option value="quantum_hammer">Quantum Hammer</option>
-                    <option value="quantum_spear">Quantum Spear</option>
-                    <option value="quantum_sword">Quantum Sword and Shield</option>
-                    <option value="doom_mace">Doom Mace</option>
-                    <option value="soulpiercer">Soulpiercer</option>
-                    <option value="scimitar">Scimitar</option>
-                    <option value="angelic_pitchfork">Angelic Pitchfork</option>
-                    <option value="dragon_dagger">Dragon Dagger</option>
-                    <option value="serpent_sword">Serpent Sword</option>
-                    <option value="siren">Siren</option>
-                </optgroup>
-            </select>
+        <div class="grid-2-col gap-vertical" style="margin-top: 16px; margin-bottom: 24px;">
+            <div class="input-wrapper">
+                <label>Tier</label>
+                <select id="p_tier" onchange="_uWList('p_tier', 'p_weapon', false)"></select>
+            </div>
+            <div class="input-wrapper">
+                <label>Weapon</label>
+                <select id="p_weapon" onchange="_uA()"></select>
+            </div>
         </div>
 
         <div class="grid-2-col gap-vertical">
@@ -270,39 +252,21 @@
             </div>
             <div class="input-wrapper">
                 <label class="flex-label">
-                    HP <span class="pvp-mult-label">(PvP Mult: <input type="text" id="e_hp_mult" value="500" class="fmt-input tiny-input" oninput="_hI('e')" tabindex="-1">%)</span>
+                    HP <span class="pvp-mult-label">(PvP Mult: <input type="text" id="e_hp_mult" value="600" class="fmt-input tiny-input" oninput="_hI('e')" tabindex="-1">%)</span>
                 </label>
                 <input type="text" id="e_hp" value="8m" class="fmt-input" oninput="_hI('e')">
             </div>
         </div>
 
-        <div class="input-wrapper" style="margin-top: 16px; margin-bottom: 24px;">
-            <label>Weapon</label>
-            <select id="e_weapon" onchange="_uA()">
-                <optgroup label="Ranged">
-                    <option value="quantum_bow">Quantum Bow</option>
-                    <option value="quantum_gun">Quantum Gun</option>
-                    <option value="quantum_staff">Quantum Staff</option>
-                    <option value="infernal_trident">Infernal Trident</option>
-                    <option value="abyssal_fork">Abyssal Fork</option>
-                    <option value="divine_staff">Divine Staff</option>
-                    <option value="staff_of_wisdom">Staff of Wisdom</option>
-                    <option value="druid_sword">Druid Sword</option>
-                    <option value="flower_sword">Flower Sword</option>
-                </optgroup>
-                <optgroup label="Melee">
-                    <option value="quantum_hammer">Quantum Hammer</option>
-                    <option value="quantum_spear">Quantum Spear</option>
-                    <option value="quantum_sword">Quantum Sword and Shield</option>
-                    <option value="doom_mace">Doom Mace</option>
-                    <option value="soulpiercer">Soulpiercer</option>
-                    <option value="scimitar">Scimitar</option>
-                    <option value="angelic_pitchfork">Angelic Pitchfork</option>
-                    <option value="dragon_dagger">Dragon Dagger</option>
-                    <option value="serpent_sword">Serpent Sword</option>
-                    <option value="siren">Siren</option>
-                </optgroup>
-            </select>
+        <div class="grid-2-col gap-vertical" style="margin-top: 16px; margin-bottom: 24px;">
+            <div class="input-wrapper">
+                <label>Tier</label>
+                <select id="e_tier" onchange="_uWList('e_tier', 'e_weapon', false)"></select>
+            </div>
+            <div class="input-wrapper">
+                <label>Weapon</label>
+                <select id="e_weapon" onchange="_uA()"></select>
+            </div>
         </div>
 
         <div class="grid-2-col gap-vertical">
@@ -656,9 +620,15 @@
                 <div class="input-wrapper"><label>HP</label><input type="text" id="mgr_hp" class="fmt-input" oninput="_hMI()"></div>
             </div>
             
-            <div class="input-wrapper full-width" style="margin-top: 16px; margin-bottom: 24px;">
-                <label>Weapon</label>
-                <select id="mgr_weapon" onchange="_hMI()"></select>
+            <div class="grid-2-col gap-vertical" style="margin-top: 16px; margin-bottom: 24px;">
+                <div class="input-wrapper">
+                    <label>Tier</label>
+                    <select id="mgr_tier" onchange="_uWList('mgr_tier', 'mgr_weapon', false)"></select>
+                </div>
+                <div class="input-wrapper">
+                    <label>Weapon</label>
+                    <select id="mgr_weapon" onchange="_hMI()"></select>
+                </div>
             </div>
 
             <div class="grid-2-col gap-vertical">
@@ -709,9 +679,15 @@
         <div class="card-header">
             <h3>Attack Speed Breakpoints Table</h3>
         </div>
-        <div class="as-controls">
-            <label for="as_weapon_select" style="margin-bottom:0; color:#cbd5e1; font-size:0.9rem;">Choose Weapon:</label>
-            <select id="as_weapon_select" onchange="_gTbl()" style="flex:1; max-width:250px;"></select>
+        <div class="as-controls" style="display: flex; gap: 12px; align-items: flex-end;">
+            <div style="flex: 1;">
+                <label style="margin-bottom:0; color:#cbd5e1; font-size:0.9rem;">Tier:</label>
+                <select id="as_tier" onchange="_uWList('as_tier', 'as_weapon_select', true)" style="width:100%; max-width:250px;"></select>
+            </div>
+            <div style="flex: 1;">
+                <label style="margin-bottom:0; color:#cbd5e1; font-size:0.9rem;">Weapon:</label>
+                <select id="as_weapon_select" onchange="_gTbl()" style="width:100%; max-width:250px;"></select>
+            </div>
         </div>
         <div class="table-container" style="background: rgba(0,0,0,0.3); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); overflow: hidden;">
             <table class="as-table" style="width:100%; border-collapse:collapse; text-align:left;">
@@ -814,26 +790,34 @@
             <h3>Read Me</h3>
         </div>
         
+        <p style="margin-bottom: 16px;">Huge thanks to <b>LexAeterna </b>for providing the data that allowed me to extrapolate the attack speed breakpoints. It is hard to overstate how tedious collecting that data is. Analyzing and extrapolating it is the easy part. Once again, thanks a lot, LexAeterna.</p>
+        
         <p style="margin-bottom: 16px;">First and foremost, please don't assume this simulator is 100% correct. While I've tried my best to mimic the in-game battles, I don't have access to the exact equations the developers use. Treat this tool as a helpful "second opinion" rather than a "true predictor".</p>
-        
-        <p style="margin-bottom: 16px;">This simulator is primarily designed for Quantum tier and above. The equations align well with my experimental data for Quantum and Underworld weapon breakpoints. However, I can't guarantee its accuracy for Divine weapons and weapon skins, as I don't have enough data to verify if the math holds up.</p>
 
-        <h4 style="color: #e2e8f0; margin-top: 24px; margin-bottom: 8px;">Weapon Breakpoints & Skins</h4>
-        <p style="margin-bottom: 16px;">For those unaware, an <strong>Attack Speed Breakpoint</strong> is the specific threshold required to jump to the next attack speed bracket. For instance, with a Quantum Gun or Infernal Trident between 100% and 149.9% Attack Speed, your double attack interval will be 1.0s. But the moment you hit 150.0%, that interval drops to 0.8s. While some weapons share the same breakpoints, most differ. Furthermore, even if two weapons have the same breakpoints, varying projectile speeds will lead to slightly different hit timings. Note that for <em>single</em> attacks, every weapon seems to share the same breakpoint regardless of whether it's melee or ranged.</p>
-        
-        <p style="margin-bottom: 16px;">I've also been informed that the recent addition of weapon skins can alter your attack speed breakpoints. This means you can strategically decide whether to equip a skin to gain an advantage. For example, if you have an Infernal Trident with 138% Attack Speed, it is better to use a skin with a more favorable breakpoint, since you won't hit the Trident's next breakpoint until 150% anyway. Be aware that the same weapon skin has different breakpoint between the melee and ranged version.</p>
+        <h4 style="color: #e2e8f0; margin-top: 24px; margin-bottom: 8px;">Attack Speed Breakpoints</h4>
+        <p style="margin-bottom: 16px;">For those unaware, an Attack Speed Breakpoint is the specific threshold required to jump to the next attack speed bracket. For instance, with a Quantum Gun or Infernal Trident between 100% and 149.9% Attack Speed, your double attack interval will be 1.0s. But the moment you hit 150.0%, that interval drops to 0.8s. While some weapons share the same breakpoints, most differ. Furthermore, even if two weapons have the same breakpoints, varying projectile speeds will lead to slightly different hit timings. Note that for single attacks, every weapon shares the same breakpoint regardless of whether it's melee or ranged. For example, if you have 132% attack speed, no matter what weapon or skin you wear, the single attack interval is always 0.8s.</p>
 
-        <h4 style="color: #e2e8f0; margin-top: 24px; margin-bottom: 8px;">Last Second Nuke</h4>
-        <p style="margin-bottom: 16px;">If you aren't in Quantum yet and run a Regen build, you may want to check out the <strong>Last Second Nuke</strong> tab. It calculates the optimal cooldown reduction required to drop a Meteor or Bomb at the very last second of a battle. Credit to Warren, the first person to showcase this trick on Discord. I can't guarantee if the cooldown reduction values are 100% correct, but from my limited testing, the equation fits my data.</p>
+        <h4 style="color: #e2e8f0; margin-top: 24px; margin-bottom: 8px;">Weapon Skins</h4>
+        <p style="margin-bottom: 16px;">Weapon skins affect the first hit timing and double attack breakpoints. This means you can strategically decide whether to equip a skin to gain an advantage. For example, if you equip a Quantum Gun with 138% Attack Speed, it is better to use a skin like the Druid Sword. This way, instead of doing double attacks every 1.0s with the gun, you will do double attacks every 0.9s with the Druid Sword.</p>
+        
+        <p style="margin-bottom: 16px;">On the other hand, if you have 152% attack speed with a Quantum Gun, it's better to just use the Quantum Gun instead of the Druid Sword so that the double attack interval is 0.8s instead of 0.9s.</p>
+        
+        <p style="margin-bottom: 16px;">Please note that for the melee version of some skins, I had to make a lot of assumptions to get the breakpoints. Collecting data for melee is much harder because there aren't that many melee users. If a skin is not listed, it means I don't have enough data to extrapolate the breakpoints yet.</p>
+
+        <h4 style="color: #e2e8f0; margin-top: 24px; margin-bottom: 8px;">Early Game</h4>
+        <p style="margin-bottom: 16px;">According to LexAeterna, after the Ascension patch, the last-second nuke is only viable for at most 1 week. By the time he got the new tier skills, the damage was not significant enough to do the last-second nuke with a regen build. Everyone's HP and damage from their equipment is strong enough to negate most of the skill damage.</p>
+        
+        <p style="margin-bottom: 16px;">He then came up with a new idea: use a regen build, make sure you have 0% double chance, and figure out the attack speed so that your last hit always lands as close to the 60-second mark as possible. This strategy is not perfect because the opponent may hit after your last attack, or you might not fully regen from the opponent's last hit. However, he said that this strategy is reliable enough for the arena.</p>
 
         <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 24px 0;">
 
-        <h4 style="color: #f87171; margin-bottom: 8px;">Final Thoughts & Known Limitations</h4>
-        <p style="margin-bottom: 16px;">Based on my limited testing, while the simulator's timing matches the game's timing, the win rate is not so accurate. I suspect the PvP HP Multiplier is the main culprit. From my testings in the past, the HP multiplier is sometimes closer to 5x, however, often time it's closer to 6x. Who knows what the true value is.</p>
-        
-        <p style="margin-bottom: 16px;">There are also edge cases I haven't cracked: What is the exact resolution order for Lifesteal when both players attack simultaneously? Does Regen scale strictly off Base HP or or do buff skills affect it? Is there any other hidden PvP buff or nerf?</p>
+        <h4 style="color: #f87171; margin-bottom: 8px;">Known Flaws With My Tool</h4>
+        <p style="margin-bottom: 16px;"><strong>1. Ranged vs Melee:</strong> For ranged weapons with projectiles, my simulator's subsequent hit timings might be off by a fraction of a second. In general, it shouldn't be a big deal, but please be aware that I simplified the tool to have the same interval regardless of the distance from the opponent.</p>
+        <p style="margin-bottom: 16px;"><strong>2. DPS:</strong> While my tool displays DPS values, be aware that these numbers are often misleading. For instance, if the battle ends in 5 seconds, the drone won't have hit the opponent yet. However, the DPS calculation still takes the drone damage into account. Another example is if you reduce your crit chance for more crit damage. The displayed DPS value may be higher, but your battle will depend on RNG even more. Practically speaking, any attack that is not a crit is negligible to the overall damage. In the endgame, crit chance behaves more like a hit accuracy stat rather than actual crit chance.</p>
 
-        <p style="margin-bottom: 16px;">Because of these unknowns, please don't take the simulator's results as absolute fact. It is far from perfect and at worst, it may be misleading.</p>
+        <h4 style="color: #f87171; margin-top: 24px; margin-bottom: 8px;">Final Thoughts</h4>
+        <p style="margin-bottom: 16px;">I have had some feedback saying that this simulator is decent. At the end of the day, this is just a random tool created by a random person. Please don't take the simulator's results as absolute fact. It is far from perfect, and at worst, it could be misleading.</p>
+
         <div style="text-align: center; margin-top: 32px; padding-bottom: 20px;">
             <img src="https://doraemon-forging.github.io/TechPlanner/icons/AbyssDoraemon.png" alt="Author Profile Picture" style="max-width: 200px; height: auto;">
             

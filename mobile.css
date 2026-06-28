@@ -729,3 +729,15 @@
     }
 }
 
+/* =========================================
+   FIREFOX-ONLY BOTTOM NAV BAR FIX
+   ========================================= */
+@-moz-document url-prefix() {
+    @media (max-width: 900px) {
+        .mobile-nav {
+            padding-bottom: 0 !important; 
+            height: 60px !important;      
+            bottom: 0 !important; 
+            box-sizing: border-box !important;
+    }
+}
