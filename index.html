@@ -101,12 +101,16 @@
         <div class="grid-2-col gap-vertical">
             <div class="inline-stat"><label>Crit Chance</label><input type="text" id="p_crit" value="50" class="fmt-input short-input" oninput="_hI('p')"></div>
             <div class="inline-stat"><label>Crit Damage</label><input type="text" id="p_crit_dmg" value="300" class="fmt-input short-input" oninput="_hI('p')"></div>
-            <div class="inline-stat"><label>Block Chance</label><input type="text" id="p_block" value="0" class="fmt-input short-input" oninput="_hI('p')"></div>
-            <div class="inline-stat"><label>Regen</label><input type="text" id="p_regen" value="0" class="fmt-input short-input" oninput="_hI('p')"></div>
+            <div class="inline-stat"><label>Block Chance</label><input type="text" id="p_block" value="" class="fmt-input short-input" oninput="_hI('p')"></div>
+            <div class="inline-stat"><label>Regen</label><input type="text" id="p_regen" value="" class="fmt-input short-input" oninput="_hI('p')"></div>
             <div class="inline-stat"><label>Lifesteal</label><input type="text" id="p_life" value="40" class="fmt-input short-input" oninput="_hI('p')"></div>
             <div class="inline-stat"><label>Double Chance</label><input type="text" id="p_double_chance" value="100" class="fmt-input short-input" oninput="_hI('p')"></div>
+            <div class="inline-stat"><label>Damage %</label><input type="text" id="p_dmg_pct" value="" class="fmt-input short-input" oninput="_hI('p')"></div>
+            <div class="inline-stat"><label>Melee/Ranged %</label><input type="text" id="p_type_pct" value="" class="fmt-input short-input" oninput="_hI('p')"></div>
             <div class="inline-stat"><label>Attack Speed</label><input type="text" id="p_atk_spd" value="100" class="fmt-input short-input" oninput="_uA()"></div>
-            <div class="inline-stat"><label>Cooldown Reduction</label><input type="text" id="p_cdr" value="0" class="fmt-input short-input" oninput="_aUC('p'); _hI('p')"></div>
+            <div class="inline-stat"><label>Cooldown Reduction</label><input type="text" id="p_cdr" value="" class="fmt-input short-input" oninput="_aUC('p'); _hI('p')"></div>
+            <div class="inline-stat"><label>Health %</label><input type="text" id="p_hp_pct" value="" class="fmt-input short-input" oninput="_hI('p')"></div>
+            <div class="inline-stat" style="visibility: hidden;"></div>
         </div>
 
         <div class="section-title">Skills</div>
@@ -134,78 +138,78 @@
         <div id="p_hidden_skills" style="display:none;">
             <div id="p_hm_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="p_hm_cd" value="8.1" data-base="8.1" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="p_hm_dmg" value="1.5m" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
-                <div class="stat-row"><label>HP</label><input type="text" id="p_hm_hp" value="12m" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="p_hm_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
+                <div class="stat-row"><label>HP</label><input type="text" id="p_hm_hp" value="" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
             </div>
             <div id="p_strafe_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="p_strafe_cd" value="10.2" data-base="10.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="p_strafe_dmg" value="4m" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="p_strafe_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
             </div>
             <div id="p_drone_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="p_drone_cd" value="8.1" data-base="8.1" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="p_drone_dmg" value="1m" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="p_drone_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
             </div>
             <div id="p_stampede_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="p_stampede_cd" value="20.2" data-base="20.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="p_stampede_dmg" value="500k" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="p_stampede_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
             </div>
             <div id="p_worm_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="p_worm_cd" value="8.2" data-base="8.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="p_worm_dmg" value="1m" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="p_worm_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
             </div>
             <div id="p_lightning_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="p_lightning_cd" value="3.2" data-base="3.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="p_lightning_dmg" value="100k" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="p_lightning_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
             </div>
             <div id="p_morale_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="p_morale_cd" value="8.1" data-base="8.1" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="p_morale_dmg" value="40k" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
-                <div class="stat-row"><label>HP</label><input type="text" id="p_morale_hp" value="320k" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="p_morale_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
+                <div class="stat-row"><label>HP</label><input type="text" id="p_morale_hp" value="" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
             </div>
             <div id="p_meteor_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="p_meteor_cd" value="9.2" data-base="9.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="p_meteor_dmg" value="100k" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="p_meteor_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
             </div>
             <div id="p_bomb_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="p_bomb_cd" value="6.2" data-base="6.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="p_bomb_dmg" value="300k" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="p_bomb_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
             </div>
             <div id="p_thorns_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="p_thorns_cd" value="5.2" data-base="5.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="p_thorns_dmg" value="20.4k" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="p_thorns_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
             </div>
             <div id="p_buff_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="p_buff_cd" value="8.1" data-base="8.1" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="p_buff_dmg" value="10k" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
-                <div class="stat-row"><label>HP</label><input type="text" id="p_buff_hp" value="80k" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="p_buff_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
+                <div class="stat-row"><label>HP</label><input type="text" id="p_buff_hp" value="" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
             </div>
             <div id="p_arrow_rain_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="p_arrow_rain_cd" value="10.2" data-base="10.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="p_arrow_rain_dmg" value="180k" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="p_arrow_rain_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
             </div>
             <div id="p_shuriken_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="p_shuriken_cd" value="4.2" data-base="4.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="p_shuriken_dmg" value="256" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="p_shuriken_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
             </div>
             <div id="p_berserk_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="p_berserk_cd" value="8.1" data-base="8.1" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="p_berserk_dmg" value="1.28k" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="p_berserk_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
             </div>
             <div id="p_cannon_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="p_cannon_cd" value="5.2" data-base="5.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="p_cannon_dmg" value="426" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="p_cannon_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
             </div>
             <div id="p_meat_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="p_meat_cd" value="8.1" data-base="8.1" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>HP</label><input type="text" id="p_meat_hp" value="100" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
+                <div class="stat-row"><label>HP</label><input type="text" id="p_meat_hp" value="" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
             </div>
             <div id="p_arrow_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="p_arrow_cd" value="7.2" data-base="7.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="p_arrow_dmg" value="66" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="p_arrow_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
             </div>
             <div id="p_shout_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="p_shout_cd" value="6.2" data-base="6.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="p_shout_dmg" value="18" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="p_shout_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('p')"></div>
             </div>
         </div>
     </div>
@@ -272,12 +276,16 @@
         <div class="grid-2-col gap-vertical">
             <div class="inline-stat"><label>Crit Chance</label><input type="text" id="e_crit" value="50" class="fmt-input short-input" oninput="_hI('e')"></div>
             <div class="inline-stat"><label>Crit Damage</label><input type="text" id="e_crit_dmg" value="300" class="fmt-input short-input" oninput="_hI('e')"></div>
-            <div class="inline-stat"><label>Block Chance</label><input type="text" id="e_block" value="0" class="fmt-input short-input" oninput="_hI('e')"></div>
-            <div class="inline-stat"><label>Regen</label><input type="text" id="e_regen" value="0" class="fmt-input short-input" oninput="_hI('e')"></div>
+            <div class="inline-stat"><label>Block Chance</label><input type="text" id="e_block" value="" class="fmt-input short-input" oninput="_hI('e')"></div>
+            <div class="inline-stat"><label>Regen</label><input type="text" id="e_regen" value="" class="fmt-input short-input" oninput="_hI('e')"></div>
             <div class="inline-stat"><label>Lifesteal</label><input type="text" id="e_life" value="40" class="fmt-input short-input" oninput="_hI('e')"></div>
             <div class="inline-stat"><label>Double Chance</label><input type="text" id="e_double_chance" value="100" class="fmt-input short-input" oninput="_hI('e')"></div>
+            <div class="inline-stat"><label>Damage %</label><input type="text" id="e_dmg_pct" value="" class="fmt-input short-input" oninput="_hI('e')"></div>
+            <div class="inline-stat"><label>Melee/Ranged %</label><input type="text" id="e_type_pct" value="" class="fmt-input short-input" oninput="_hI('e')"></div>
             <div class="inline-stat"><label>Attack Speed</label><input type="text" id="e_atk_spd" value="100" class="fmt-input short-input" oninput="_uA()"></div>
-            <div class="inline-stat"><label>Cooldown Reduction</label><input type="text" id="e_cdr" value="0" class="fmt-input short-input" oninput="_aUC('e'); _hI('e')"></div>
+            <div class="inline-stat"><label>Cooldown Reduction</label><input type="text" id="e_cdr" value="" class="fmt-input short-input" oninput="_aUC('e'); _hI('e')"></div>
+            <div class="inline-stat"><label>Health %</label><input type="text" id="e_hp_pct" value="" class="fmt-input short-input" oninput="_hI('e')"></div>
+            <div class="inline-stat" style="visibility: hidden;"></div>
         </div>
 
         <div class="section-title">Skills</div>
@@ -305,78 +313,78 @@
         <div id="e_hidden_skills" style="display:none;">
             <div id="e_hm_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="e_hm_cd" value="8.1" data-base="8.1" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="e_hm_dmg" value="1.5m" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
-                <div class="stat-row"><label>HP</label><input type="text" id="e_hm_hp" value="12m" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="e_hm_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
+                <div class="stat-row"><label>HP</label><input type="text" id="e_hm_hp" value="" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
             </div>
             <div id="e_strafe_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="e_strafe_cd" value="10.2" data-base="10.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="e_strafe_dmg" value="4m" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="e_strafe_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
             </div>
             <div id="e_drone_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="e_drone_cd" value="8.1" data-base="8.1" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="e_drone_dmg" value="1m" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="e_drone_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
             </div>
             <div id="e_stampede_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="e_stampede_cd" value="20.2" data-base="20.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="e_stampede_dmg" value="500k" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="e_stampede_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
             </div>
             <div id="e_worm_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="e_worm_cd" value="8.2" data-base="8.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="e_worm_dmg" value="1m" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="e_worm_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
             </div>
             <div id="e_lightning_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="e_lightning_cd" value="3.2" data-base="3.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="e_lightning_dmg" value="100k" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="e_lightning_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
             </div>
             <div id="e_morale_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="e_morale_cd" value="8.1" data-base="8.1" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="e_morale_dmg" value="40k" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
-                <div class="stat-row"><label>HP</label><input type="text" id="e_morale_hp" value="320k" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="e_morale_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
+                <div class="stat-row"><label>HP</label><input type="text" id="e_morale_hp" value="" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
             </div>
             <div id="e_meteor_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="e_meteor_cd" value="9.2" data-base="9.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="e_meteor_dmg" value="100k" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="e_meteor_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
             </div>
             <div id="e_bomb_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="e_bomb_cd" value="6.2" data-base="6.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="e_bomb_dmg" value="300k" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="e_bomb_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
             </div>
             <div id="e_thorns_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="e_thorns_cd" value="5.2" data-base="5.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="e_thorns_dmg" value="20.4k" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="e_thorns_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
             </div>
             <div id="e_buff_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="e_buff_cd" value="8.1" data-base="8.1" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="e_buff_dmg" value="10k" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
-                <div class="stat-row"><label>HP</label><input type="text" id="e_buff_hp" value="80k" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="e_buff_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
+                <div class="stat-row"><label>HP</label><input type="text" id="e_buff_hp" value="" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
             </div>
             <div id="e_arrow_rain_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="e_arrow_rain_cd" value="10.2" data-base="10.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="e_arrow_rain_dmg" value="180k" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="e_arrow_rain_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
             </div>
             <div id="e_shuriken_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="e_shuriken_cd" value="4.2" data-base="4.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="e_shuriken_dmg" value="256" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="e_shuriken_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
             </div>
             <div id="e_berserk_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="e_berserk_cd" value="8.1" data-base="8.1" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="e_berserk_dmg" value="1.28k" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="e_berserk_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
             </div>
             <div id="e_cannon_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="e_cannon_cd" value="5.2" data-base="5.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="e_cannon_dmg" value="426" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="e_cannon_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
             </div>
             <div id="e_meat_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="e_meat_cd" value="8.1" data-base="8.1" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>HP</label><input type="text" id="e_meat_hp" value="100" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
+                <div class="stat-row"><label>HP</label><input type="text" id="e_meat_hp" value="" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
             </div>
             <div id="e_arrow_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="e_arrow_cd" value="7.2" data-base="7.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="e_arrow_dmg" value="66" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="e_arrow_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
             </div>
             <div id="e_shout_block" class="skill-stats-area">
                 <div class="stat-row"><label>Cooldown</label><span><input type="text" id="e_shout_cd" value="6.2" data-base="6.2" readonly tabindex="-1" class="stat-input-clean" style="width:40px !important; color:#94a3b8 !important; background: transparent !important; border: none !important; box-shadow: none !important;">s</span></div>
-                <div class="stat-row"><label>Damage</label><input type="text" id="e_shout_dmg" value="18" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
+                <div class="stat-row"><label>Damage</label><input type="text" id="e_shout_dmg" value="" class="fmt-input stat-input-clean" oninput="_hI('e')"></div>
             </div>
         </div>
     </div>
@@ -638,10 +646,13 @@
                 <div class="inline-stat"><label>Regen</label><input type="text" id="mgr_regen" class="fmt-input short-input" oninput="_hMI()"></div>
                 <div class="inline-stat"><label>Lifesteal</label><input type="text" id="mgr_life" class="fmt-input short-input" oninput="_hMI()"></div>
                 <div class="inline-stat"><label>Double Chance</label><input type="text" id="mgr_double_chance" class="fmt-input short-input" oninput="_hMI()"></div>
+                <div class="inline-stat"><label>Damage %</label><input type="text" id="mgr_dmg_pct" class="fmt-input short-input" oninput="_hMI()"></div>
+                <div class="inline-stat"><label>Melee/Ranged %</label><input type="text" id="mgr_type_pct" class="fmt-input short-input" oninput="_hMI()"></div>
                 <div class="inline-stat"><label>Attack Speed</label><input type="text" id="mgr_atk_spd" class="fmt-input short-input" oninput="_hMI()"></div>
                 <div class="inline-stat"><label>Cooldown Reduction</label><input type="text" id="mgr_cdr" class="fmt-input short-input" oninput="_hMI()"></div>
+                <div class="inline-stat"><label>Health %</label><input type="text" id="mgr_hp_pct" class="fmt-input short-input" oninput="_hMI()"></div>
+                <div class="inline-stat" style="visibility: hidden;"></div>
             </div>
-
             <div class="section-title" style="margin-top: 24px;">Skill</div>
             <div class="skills-grid">
                 <div class="skill-slot-card">
@@ -681,11 +692,11 @@
         </div>
         <div class="as-controls" style="display: flex; gap: 12px; align-items: flex-end;">
             <div style="flex: 1;">
-                <label style="margin-bottom:0; color:#cbd5e1; font-size:0.9rem;">Tier:</label>
+                <label style="margin-bottom:6px; color:#cbd5e1; font-size:0.9rem;">Tier:</label>
                 <select id="as_tier" onchange="_uWList('as_tier', 'as_weapon_select', true)" style="width:100%; max-width:250px;"></select>
             </div>
             <div style="flex: 1;">
-                <label style="margin-bottom:0; color:#cbd5e1; font-size:0.9rem;">Weapon:</label>
+                <label style="margin-bottom:6px; color:#cbd5e1; font-size:0.9rem;">Weapon:</label>
                 <select id="as_weapon_select" onchange="_gTbl()" style="width:100%; max-width:250px;"></select>
             </div>
         </div>
@@ -790,9 +801,9 @@
             <h3>Read Me</h3>
         </div>
         
-        <p style="margin-bottom: 16px;">Huge thanks to <b>LexAeterna </b>for providing the data that allowed me to extrapolate the attack speed breakpoints. It is hard to overstate how tedious collecting that data is. Analyzing and extrapolating it is the easy part. Once again, thanks a lot, LexAeterna.</p>
-        
         <p style="margin-bottom: 16px;">First and foremost, please don't assume this simulator is 100% correct. While I've tried my best to mimic the in-game battles, I don't have access to the exact equations the developers use. Treat this tool as a helpful "second opinion" rather than a "true predictor".</p>
+
+        <p style="margin-bottom: 16px;">Huge thanks to <b>LexAeterna </b>for providing the data that allowed me to extrapolate the attack speed breakpoints. It is hard to overstate how tedious collecting that data is. Analyzing and extrapolating it is the easy part. Once again, thanks a lot, LexAeterna.</p>
 
         <h4 style="color: #e2e8f0; margin-top: 24px; margin-bottom: 8px;">Attack Speed Breakpoints</h4>
         <p style="margin-bottom: 16px;">For those unaware, an Attack Speed Breakpoint is the specific threshold required to jump to the next attack speed bracket. For instance, with a Quantum Gun or Infernal Trident between 100% and 149.9% Attack Speed, your double attack interval will be 1.0s. But the moment you hit 150.0%, that interval drops to 0.8s. While some weapons share the same breakpoints, most differ. Furthermore, even if two weapons have the same breakpoints, varying projectile speeds will lead to slightly different hit timings. Note that for single attacks, every weapon shares the same breakpoint regardless of whether it's melee or ranged. For example, if you have 132% attack speed, no matter what weapon or skin you wear, the single attack interval is always 0.8s.</p>
