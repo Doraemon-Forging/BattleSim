@@ -18,7 +18,6 @@
             <a href="javascript:void(0)" id="nav_sim" class="active" onclick="_sT('sim')">Simulator</a>
             <a href="javascript:void(0)" id="nav_manager" onclick="_sT('manager')">Profile Manager</a>
             <a href="javascript:void(0)" id="nav_table" onclick="_sT('table')">Breakpoints</a>
-            <a href="javascript:void(0)" id="nav_nuke" onclick="_sT('nuke')">Last Second Nuke</a>
             <a href="javascript:void(0)" id="nav_readme" onclick="_sT('readme')">Read Me</a>
         </div>
         
@@ -824,7 +823,7 @@
         
         <p style="margin-bottom: 16px;">First and foremost, please don't assume this simulator is 100% correct. While I've tried my best to mimic the in-game battles, I don't have access to the exact equations the developers use. Treat this tool as a helpful "second opinion" rather than a "true predictor".</p>
 
-        <p style="margin-bottom: 16px;">Huge thanks to <b>LexAeterna </b>for providing most of the data. It is hard to overstate how tedious collecting that data is. Analyzing and extrapolating it is the easy part. Once again, thanks a lot, LexAeterna.</p>
+        <p style="margin-bottom: 16px;">Huge thanks to <b>LexAeterna </b>for providing most of the data. It is hard to overstate how tedious collecting those data is. Analyzing and extrapolating it is the easy part. Once again, thanks a lot, LexAeterna.</p>
 
         <h4 style="color: #e2e8f0; margin-top: 24px; margin-bottom: 8px;">Attack Speed Breakpoints</h4>
         <p style="margin-bottom: 16px;">For those unaware, an Attack Speed Breakpoint is the specific threshold required to jump to the next attack speed bracket. For instance, with a Quantum Gun or Infernal Trident between 100% and 149.9% Attack Speed, your double attack interval will be 1.0s. But the moment you hit 150.0%, that interval drops to 0.8s. While some weapons share the same breakpoints, most differ. Furthermore, even if two weapons have the same breakpoints, varying projectile speeds will lead to slightly different hit timings. Note that for single attacks, every weapon shares the same breakpoint regardless of whether it's melee or ranged. For example, if you have 132% attack speed, no matter what weapon or skin you wear, the single attack interval is always 0.8s.</p>
@@ -835,7 +834,7 @@
         <p style="margin-bottom: 16px;">On the other hand, if you have 152% attack speed with a Quantum Gun, it's better to just use the Quantum Gun instead of the Druid Sword so that the double attack interval is 0.8s instead of 0.9s.</p>
         
         <h4 style="color: #e2e8f0; margin-top: 24px; margin-bottom: 8px;">Last Second Nuke</h4>
-        <p style="margin-bottom: 16px;">According to LexAeterna, after the Ascension patch, the last-second nuke is only viable for at most 1 week. By the time he got the new tier skills, the damage was not significant enough to do the last-second nuke with a regen build. Everyone's HP and damage from their equipment is strong enough to negate most of the skill damage.</p>
+        <p style="margin-bottom: 16px;">I decided to remove this section. After testing with a new account, LexAeterna said that the last second nuke is not a viable strategy anymore.</p>
         
         <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 24px 0;">
 
@@ -872,18 +871,6 @@
                         <path d="M9.5 17.5 21 6V3h-3L6.5 14.5"/>
                     </svg>
                     Attack Speed Breakpoints
-                </div>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </button>
-            
-            <button class="more-menu-btn" onclick="_sT('nuke')">
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="13" r="9"/>
-                        <path d="M14.35 4.65 16.3 2.7a2.41 2.41 0 0 1 3.4 0l1.6 1.6a2.4 2.4 0 0 1 0 3.4l-1.95 1.95"/>
-                        <path d="m22 2-1.5 1.5"/>
-                    </svg>
-                    Last Second Nuke
                 </div>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </button>
