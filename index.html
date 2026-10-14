@@ -109,14 +109,14 @@
             <div class="inline-stat"><label>Attack Speed</label><input type="text" id="p_atk_spd" value="100" class="fmt-input short-input" oninput="_uA()"></div>
             <div class="inline-stat"><label>Cooldown Reduction</label><input type="text" id="p_cdr" value="" class="fmt-input short-input" oninput="_aUC('p'); _hI('p')"></div>
             <div class="inline-stat"><label>Health %</label><input type="text" id="p_hp_pct" value="" class="fmt-input short-input" oninput="_hI('p')"></div>
-            <div class="inline-stat" style="visibility: hidden;"></div>
+            <div class="inline-stat"><label>Reflect Chance</label><input type="text" id="p_reflect" value="" class="fmt-input short-input" oninput="_hI('p')"></div>
             
             <div style="grid-column: 1 / -1;"><hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 8px 0;"></div>
             
             <div class="inline-stat"><label>Movespeed Bonus</label><input type="text" id="p_ms_bonus" value="" class="fmt-input short-input" oninput="_hI('p')"></div>
             <div class="inline-stat"><label>Range Bonus</label><input type="text" id="p_range_bonus" value="" class="fmt-input short-input" oninput="_hI('p')"></div>
-            <div class="inline-stat"><label>War Dmg Bonus</label><input type="text" id="p_war_dmg" value="" class="fmt-input short-input" oninput="_hI('p')"></div>
-            <div class="inline-stat"><label>War HP Bonus</label><input type="text" id="p_war_hp" value="" class="fmt-input short-input" oninput="_hI('p')"></div>
+            <div class="inline-stat"><label>War Dmg Bonus %</label><input type="text" id="p_war_dmg" value="" class="fmt-input short-input" oninput="_hI('p')"></div>
+            <div class="inline-stat"><label>War HP Bonus %</label><input type="text" id="p_war_hp" value="" class="fmt-input short-input" oninput="_hI('p')"></div>
         </div>
 
         <div class="section-title">Skills</div>
@@ -291,14 +291,14 @@
             <div class="inline-stat"><label>Attack Speed</label><input type="text" id="e_atk_spd" value="100" class="fmt-input short-input" oninput="_uA()"></div>
             <div class="inline-stat"><label>Cooldown Reduction</label><input type="text" id="e_cdr" value="" class="fmt-input short-input" oninput="_aUC('e'); _hI('e')"></div>
             <div class="inline-stat"><label>Health %</label><input type="text" id="e_hp_pct" value="" class="fmt-input short-input" oninput="_hI('e')"></div>
-            <div class="inline-stat" style="visibility: hidden;"></div>
+            <div class="inline-stat"><label>Reflect Chance</label><input type="text" id="e_reflect" value="" class="fmt-input short-input" oninput="_hI('e')"></div>
             
             <div style="grid-column: 1 / -1;"><hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 8px 0;"></div>
             
             <div class="inline-stat"><label>Movespeed Bonus</label><input type="text" id="e_ms_bonus" value="" class="fmt-input short-input" oninput="_hI('e')"></div>
             <div class="inline-stat"><label>Range Bonus</label><input type="text" id="e_range_bonus" value="" class="fmt-input short-input" oninput="_hI('e')"></div>
-            <div class="inline-stat"><label>War Dmg Bonus</label><input type="text" id="e_war_dmg" value="" class="fmt-input short-input" oninput="_hI('e')"></div>
-            <div class="inline-stat"><label>War HP Bonus</label><input type="text" id="e_war_hp" value="" class="fmt-input short-input" oninput="_hI('e')"></div>
+            <div class="inline-stat"><label>War Dmg Bonus %</label><input type="text" id="e_war_dmg" value="" class="fmt-input short-input" oninput="_hI('e')"></div>
+            <div class="inline-stat"><label>War HP Bonus %</label><input type="text" id="e_war_hp" value="" class="fmt-input short-input" oninput="_hI('e')"></div>
         </div>
 
         <div class="section-title">Skills</div>
@@ -461,6 +461,11 @@
                         <span id="o_skl_p2">-</span>
                     </div>
                     <div id="o_skill_details" style="display: none; flex-direction: column; background: rgba(0,0,0,0.15); font-size: 0.85em;"></div>
+                    <div class="stats-row" id="row_o_rfl">
+                        <span>Reflect Damage</span>
+                        <span id="o_rfl_p1">-</span>
+                        <span id="o_rfl_p2">-</span>
+                    </div>
                     <div class="stats-row" id="row_o_heal" style="cursor: pointer; user-select: none;">
                         <span style="display: flex; align-items: center;">Heal<span id="o_heal_toggle" style="font-family: monospace; color: #64748b; margin-left: 4px;">[+]</span></span>
                         <span id="o_heal_p1">-</span>
@@ -529,6 +534,11 @@
                         <span id="m_skl_p2">-</span>
                     </div>
                     <div id="m_skill_details" style="display: none; flex-direction: column; background: rgba(0,0,0,0.15); font-size: 0.85em;"></div>
+                    <div class="stats-row" id="row_m_rfl">
+                        <span>Reflect Damage</span>
+                        <span id="m_rfl_p1">-</span>
+                        <span id="m_rfl_p2">-</span>
+                    </div>
                     <div class="stats-row" id="row_m_heal" style="cursor: pointer; user-select: none;">
                         <span style="display: flex; align-items: center;">Heal<span id="m_heal_toggle" style="font-family: monospace; color: #64748b; margin-left: 4px;">[+]</span></span>
                         <span id="m_heal_p1">-</span>
@@ -588,6 +598,7 @@
                 <span title="Skill / Ability"><span class="lgd-icon">💪</span> Buff Skill</span>
                 <span title="Skill / Ability"><span class="lgd-icon">✨</span> Attack Skill</span>
                 <span title="Blocked Attack"><span class="lgd-icon">🛡️</span> Block</span>
+                <span title="Reflected Attack"><span class="lgd-icon">🪞</span> Reflect</span>
             </div>
             <div id="battleLog" class="log-box">Log will appear here...</div>
         </div>
@@ -670,8 +681,8 @@
                 
                 <div class="inline-stat"><label>Movespeed Bonus</label><input type="text" id="mgr_ms_bonus" class="fmt-input short-input" oninput="_hMI()"></div>
                 <div class="inline-stat"><label>Range Bonus</label><input type="text" id="mgr_range_bonus" class="fmt-input short-input" oninput="_hMI()"></div>
-                <div class="inline-stat"><label>War Dmg Bonus</label><input type="text" id="mgr_war_dmg" class="fmt-input short-input" oninput="_hMI()"></div>
-                <div class="inline-stat"><label>War HP Bonus</label><input type="text" id="mgr_war_hp" class="fmt-input short-input" oninput="_hMI()"></div>
+                <div class="inline-stat"><label>War Dmg Bonus %</label><input type="text" id="mgr_war_dmg" class="fmt-input short-input" oninput="_hMI()"></div>
+                <div class="inline-stat"><label>War HP Bonus %</label><input type="text" id="mgr_war_hp" class="fmt-input short-input" oninput="_hMI()"></div>
             </div>
             <div class="section-title" style="margin-top: 24px;">Skill</div>
             <div class="skills-grid">
